@@ -16,8 +16,14 @@ $(function () {
         if (url) {
             $.ajax({
                 url: url,
+                beforeSend: function () {
+                    modalBody.addClass('loading');
+                },
                 success: function (data) {
                     modalBody.html(data);
+                },
+                complete: function () {
+                    modalBody.removeClass('loading');
                 }
             });
         }
@@ -29,7 +35,7 @@ $(function () {
 
         var formData = new FormData(this),
             form = $(this),
-            body = form.closest('.modal-body').empty();
+            modalBody = form.closest('.modal-body');
 
         $.ajax({
             url: form.attr('action'),
@@ -37,8 +43,14 @@ $(function () {
             processData: false,
             contentType: false,
             data: formData,
+            beforeSend: function () {
+                form.find(':input').attr('disabled', true);
+            },
             success: function (data) {
-                body.html(data);
+                modalBody.html(data);
+            },
+            complete: function () {
+                form.find(':input').attr('disabled', false);
             }
         });
     });
