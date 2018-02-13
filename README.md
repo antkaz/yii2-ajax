@@ -41,10 +41,11 @@ to the **require** section of your `composer.json` file.
 3. Add a link that will open the modal window:
 
     ```php
-    <?= Html::a('Create', ['create'], [
+    <?= \yii\helpers\Html::a('Create', ['create'], [
         'class' => 'btn btn-success',
         'data-toggle' => 'ajax-modal', // outputs the result to the modal window
         'data-target' => '#modal', // ID modal
+        'data-title' => 'Create item' // custom modal title
     ]); ?>
     ```
     

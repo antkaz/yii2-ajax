@@ -11,7 +11,15 @@ $(function () {
         var self = $(this),
             target = $(self.attr('data-target')),
             url = self.attr('href'),
+            title = (self.attr('data-title') || ''),
+            modalTitle = target.find('.modal-header').find('.modal-title'),
             modalBody = target.modal('show').find('.modal-body').empty();
+
+        if (modalTitle.length === 0) {
+            $('<h4>' + title + '</h4>').addClass('modal-title').appendTo(target.find('.modal-header'));
+        } else {
+            modalTitle.text(title);
+        }
 
         if (url) {
             $.ajax({
