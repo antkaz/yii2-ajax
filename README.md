@@ -22,7 +22,7 @@ to the **require** section of your `composer.json` file.
 
 ## Usage
 
-1. Register asset bundle with a view by calling the `antkaz\ajax\modalBundle::register()` method. For example:
+1 Register asset bundle with a view by calling the `antkaz\ajax\modalBundle::register()` method. For example:
 
 ```php
 <?php
@@ -31,7 +31,7 @@ ModalBundle::register($this); // $this represents the view object
 ?>
 ```
     
-2. Аdd the modal widget to your view file:
+2 Аdd the modal widget to your view file:
 
 ```php
 <?= yii\bootstrap\Modal::widget([
@@ -39,7 +39,7 @@ ModalBundle::register($this); // $this represents the view object
 ]); ?>
 ```
     
-3. Add a link that will open the modal window:
+3 Add a link that will open the modal window:
 
 ```php
 <?= \yii\helpers\Html::a('Create', ['create'], [
@@ -50,7 +50,7 @@ ModalBundle::register($this); // $this represents the view object
 ]); ?>
 ```
     
-4. Add the `data-ajax` attribute in the ActiveForm options:
+4 Add the `data-ajax` attribute in the ActiveForm options:
 
 ```php
 <?php $form = ActiveForm::begin([
@@ -64,7 +64,7 @@ ModalBundle::register($this); // $this represents the view object
 <?php ActiveForm::end() ?>
 ```
     
-5. Create an action in your controller that will handle this request:
+5 Create an action in your controller that will handle this request:
 
 ```php
 public function actionCreate()
