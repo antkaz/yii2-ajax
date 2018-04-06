@@ -66,27 +66,26 @@ ModalBundle::register($this); // $this represents the view object
     
 5. Create an action in your controller that will handle this request:
 
- ```php
- public function actionCreate()
- {
-     $model = new Model();
+```php
+public function actionCreate()
+{
+    $model = new Model();
 
-     if ($model->load(Yii::$app->request->post()) && $model->save()) {
-         return $this->redirect(['index']);
-     }
+    if ($model->load(Yii::$app->request->post()) && $model->save()) {
+        return $this->redirect(['index']);
+    }
 
-     return $this->renderView('create', [
-         'model' => $model,
-     ]);
+    return $this->renderView('create', [
+        'model' => $model,
+    ]);
 
- }
+}
 
- protected function renderView($view, $params = [])
- {
-     if (Yii::$app->request->isAjax) {
-         return $this->renderAjax($view, $params);
-     }
-
-     return $this->render($view, $params);
- }
- ```
+protected function renderView($view, $params = [])
+{
+    if (Yii::$app->request->isAjax) {
+        return $this->renderAjax($view, $params);
+    }
+    return $this->render($view, $params);
+}
+```
