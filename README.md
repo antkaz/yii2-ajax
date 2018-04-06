@@ -24,15 +24,16 @@ to the **require** section of your `composer.json` file.
 
 1. Register asset bundle with a view by calling the `antkaz\ajax\modalBundle::register()` method. For example:
 
-    ```php
+    ```
     <?php
     use antkaz\ajax\ModalBundle;
     ModalBundle::register($this); // $this represents the view object
+    ?>
     ```
     
 2. Аdd the modal widget to your view file:
 
-    ```php
+    ```
     <?= yii\bootstrap\Modal::widget([
         'id' => 'modal',
     ]); ?>
@@ -40,7 +41,7 @@ to the **require** section of your `composer.json` file.
     
 3. Add a link that will open the modal window:
 
-    ```php
+    ```
     <?= \yii\helpers\Html::a('Create', ['create'], [
         'class' => 'btn btn-success',
         'data-toggle' => 'ajax-modal', // outputs the result to the modal window
@@ -49,9 +50,23 @@ to the **require** section of your `composer.json` file.
     ]); ?>
     ```
     
-4. Create an action in your controller that will handle this request:
+4. Add the `data-ajax` attribute in the ActiveForm options:
 
-     ```php
+    ```
+    <?php $form = ActiveForm::begin([
+        'options' => [
+            'data-ajax' => 1
+        ],
+    ]); ?>
+    
+    // . . .
+    
+    <?php ActiveForm::end() ?>
+    ```
+    
+5. Create an action in your controller that will handle this request:
+
+     ```
      public function actionCreate()
      {
          $model = new Model();
