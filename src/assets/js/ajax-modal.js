@@ -43,7 +43,8 @@ $(function () {
 
         var formData = new FormData(this),
             form = $(this),
-            modalBody = form.closest('.modal-body');
+            modalBody = form.closest('.modal-body'),
+            modalId = form.closest('.modal').attr('id');
 
         $.ajax({
             url: form.attr('action'),
@@ -55,6 +56,7 @@ $(function () {
                 form.find(':input').attr('disabled', true);
             },
             success: function (data) {
+                $('#' + modalId).trigger('submit.result.bs.modal', [data]);
                 modalBody.html(data);
             },
             complete: function () {
