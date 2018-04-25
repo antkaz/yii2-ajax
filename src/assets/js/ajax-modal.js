@@ -56,7 +56,7 @@ $(function () {
                 form.find(':input').attr('disabled', true);
             },
             success: function (data) {
-                $('#' + modalId).trigger('submit.result.bs.modal', [data]);
+                $('#' + modalId).trigger('submit.success.bs.modal', [data]);
                 modalBody.html(data);
             },
             complete: function () {
