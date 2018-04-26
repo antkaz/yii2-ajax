@@ -53,14 +53,15 @@ $(function () {
             contentType: false,
             data: formData,
             beforeSend: function () {
-                form.find(':input').attr('disabled', true);
+                modalBody.html('');
+                modalBody.addClass('loading');
             },
             success: function (data) {
                 $('#' + modalId).trigger('submit.success.bs.modal', [data]);
                 modalBody.html(data);
             },
             complete: function () {
-                form.find(':input').attr('disabled', false);
+                modalBody.removeClass('loading');
             }
         });
     });
