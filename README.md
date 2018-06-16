@@ -21,20 +21,11 @@ or add
 to the **require** section of your `composer.json` file.
 
 ## Usage
-
-1. Register asset bundle with a view by calling the `antkaz\ajax\modalBundle::register()` method. For example:
-
-    ```php
-    <?php
-    use antkaz\ajax\ModalBundle;
-    ModalBundle::register($this); // $this represents the view object
-    ?>
-    ```
     
-2. Аdd the modal widget to your view file:
+1. Аdd the modal widget to your view file:
 
     ```php
-    <?= yii\bootstrap\Modal::widget([
+    <?= \antkaz\ajax\Modal::widget([
         'id' => 'modal',
         'clientEvents' => [
             'submit.success.bs.modal' => 'function(event, body) {$(this).modal("hide")}'
@@ -42,10 +33,10 @@ to the **require** section of your `composer.json` file.
     ]); ?>
     ```
     
-3. Add a link that will open the modal window:
+2. Add a link that will open the modal window:
     
     ```php
-    <?= \yii\helpers\Html::a('Create', ['create'], [
+    <?= \yii\bootstrap\Html::a('Create', ['create'], [
         'class' => 'btn btn-success',
         'data-toggle' => 'ajax-modal', // outputs the result to the modal window
         'data-target' => '#modal', // ID modal
@@ -53,21 +44,21 @@ to the **require** section of your `composer.json` file.
     ]); ?>
     ```
     
-4. Add the `data-ajax` attribute in the ActiveForm options:
+3. Add the `data-ajax` attribute in the ActiveForm options:
     
     ```php
-    <?php $form = ActiveForm::begin([
+    <?php $form = \yii\bootstrap\ActiveForm::begin([
         'options' => [
             'data-ajax' => 1
         ],
     ]); ?>
     
-    // . . .
+    // your fields
     
-    <?php ActiveForm::end() ?>
+    <?php \yii\bootstrap\ActiveForm::end() ?>
     ```
     
-5. Create an action in your controller that will handle this request:
+4. Create an action in your controller that will handle this request:
     
     ```php
     public function actionCreate()
