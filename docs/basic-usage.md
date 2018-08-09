@@ -1,29 +1,5 @@
-# yii2-ajax
+# Basic usage
 
-This extension allows you to create forms in the Twitter Bootstrap modal window.
-
-Documentation is at [docs/README.md](docs/README.md)
-
-# Installation
-
-The preferred way to install this extension is through composer.
-
-Run
-
-```bash
-php composer.phar require antkaz/yii2-ajax
-```
-
-or add
-
-```
-"antkaz/yii2-ajax": "~1.2"
-```
-
-to the **require** section of your `composer.json` file.
-
-## Basic usage
-    
 1. Аdd the modal widget to your view file:
 
     ```php
@@ -84,24 +60,4 @@ to the **require** section of your `composer.json` file.
         }
         return $this->render($view, $params);
     }
-    ```
-## Attributes
-
-Link attributes for loading the modal window:
-
-* `data-toggle` - Toggle for enabled ajax-modal (required value `ajax-modal`);
-* `data-target` - Bootstrap modal selector;
-* `data-title` - Modal title;
-* `data-gridview` - Yii2 GridView selector for group operations.
-   
-## Events
-
-Added the following events, in addition to those that already [exist](https://getbootstrap.com/docs/3.3/javascript/#modals-events)
-
-* `submit.success.bs.modal` - This event is triggered after the form has been successfully submitted. The second parameter is the content of the response:
-    
-    ```js
-    $('#myModal').on('submit.success.bs.modal', function (event, bodyResponse) {
-      // do something...
-    })
     ```

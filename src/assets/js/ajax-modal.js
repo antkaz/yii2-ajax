@@ -13,7 +13,8 @@ $(function () {
             url = self.attr('href'),
             title = (self.attr('data-title') || ''),
             modalTitle = target.find('.modal-header').find('.modal-title'),
-            modalBody = target.modal('show').find('.modal-body').empty();
+            modalBody = target.modal('show').find('.modal-body').empty(),
+            gridView = (self.attr('data-gridview') || false);
 
         if (modalTitle.length === 0) {
             $('<h4>' + title + '</h4>').addClass('modal-title').appendTo(target.find('.modal-header'));
@@ -21,19 +22,25 @@ $(function () {
             modalTitle.text(title);
         }
 
+        var ajaxOptions = {
+            url: url,
+            beforeSend: function () {
+                modalBody.addClass('loading');
+            },
+            success: function (data) {
+                modalBody.html(data);
+            },
+            complete: function () {
+                modalBody.removeClass('loading');
+            }
+        };
+
+        if (gridView !== false) {
+            ajaxOptions.data = {ids:$(gridView).yiiGridView('getSelectedRows')};
+        }
+
         if (url) {
-            $.ajax({
-                url: url,
-                beforeSend: function () {
-                    modalBody.addClass('loading');
-                },
-                success: function (data) {
-                    modalBody.html(data);
-                },
-                complete: function () {
-                    modalBody.removeClass('loading');
-                }
-            });
+            $.ajax(ajaxOptions);
         }
     });
 
