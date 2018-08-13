@@ -1,0 +1,6 @@
+/*!
+ * @copyright Copyright &copy; Anton Kazarinov 2018
+ *
+ * Author: Anton Kazarinov
+ */
+.modal .loading{width:100%;min-height:150px;cursor:wait;background:url(../img/loading.gif) center center no-repeat}

@@ -20,11 +20,11 @@ class ModalBundle extends AssetBundle
     public $sourcePath = '@antkaz/ajax/assets';
 
     public $css = [
-        'css/ajax-modal.css',
+        YII_ENV_DEV ? 'css/ajax-modal.css' : 'css/ajax-modal.min.css',
     ];
 
     public $js = [
-        'js/ajax-modal.js',
+        YII_ENV_DEV ? 'js/ajax-modal.js' : 'js/ajax-modal.min.js',
     ];
 
     public $depends = [
