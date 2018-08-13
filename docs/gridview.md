@@ -43,7 +43,7 @@ The first argument `$ids` is an array of row identifiers that have been selected
     
         // your code
     
-        return $this->ajaxRender('edit-group', [
+        return $this->renderAjax('edit-group', [
             'model' => $model,
         ]);   
     }
