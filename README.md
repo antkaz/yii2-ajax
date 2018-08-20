@@ -4,7 +4,7 @@ This extension allows you to create forms in the Twitter Bootstrap modal window.
 
 Documentation is at [docs/README.md](docs/README.md)
 
-# Installation
+## Installation
 
 The preferred way to install this extension is through composer.
 
