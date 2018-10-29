@@ -29,6 +29,7 @@ $(function () {
             },
             success: function (data) {
                 modalBody.html(data);
+                target.trigger('loaded.bs.modal', [data]);
             },
             complete: function () {
                 modalBody.removeClass('loading');
