@@ -7,6 +7,8 @@
 
 namespace antkaz\ajax;
 
+use yii\bootstrap4\BootstrapAsset;
+use yii\bootstrap4\BootstrapPluginAsset;
 use yii\web\AssetBundle;
 
 /**
@@ -28,7 +30,7 @@ class ModalBundle extends AssetBundle
     ];
 
     public $depends = [
-        'yii\bootstrap\BootstrapAsset',
-        'yii\bootstrap\BootstrapPluginAsset',
+        BootstrapAsset::class,
+        BootstrapPluginAsset::class,
     ];
 }

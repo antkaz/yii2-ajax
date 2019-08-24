@@ -15,7 +15,7 @@ namespace antkaz\ajax;
  * @author Anton Kazarinov <askazarinov@gmail.com>
  * @package antkaz\ajax
  */
-class Modal extends \yii\bootstrap\Modal
+class Modal extends \yii\bootstrap4\Modal
 {
     /**
      * @inheritdoc
