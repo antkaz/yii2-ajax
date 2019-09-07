@@ -3,4 +3,4 @@
  *
  * Author: Anton Kazarinov
  */
-.modal .loading{width:100%;min-height:150px;cursor:wait;background:url(../img/loading.gif) center center no-repeat}
+.modal .loading{width:100%;text-align:center;cursor:wait}

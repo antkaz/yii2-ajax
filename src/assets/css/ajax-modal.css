@@ -5,7 +5,6 @@
  */
 .modal .loading {
     width: 100%;
-    min-height: 150px;
+    text-align: center;
     cursor: wait;
-    background: url('../img/loading.gif') center center no-repeat;
 }

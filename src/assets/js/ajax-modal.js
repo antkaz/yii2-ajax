@@ -26,6 +26,7 @@ $(function () {
             url: url,
             beforeSend: function () {
                 modalBody.addClass('loading');
+                modalBody.html('<div class="spinner-grow mt-5 mb-5"></div>');
             },
             success: function (data) {
                 modalBody.html(data);
@@ -61,8 +62,8 @@ $(function () {
             contentType: false,
             data: formData,
             beforeSend: function () {
-                modalBody.html('');
                 modalBody.addClass('loading');
+                modalBody.html('<div class="spinner-grow mt-5 mb-5"></div>');
             },
             success: function (data) {
                 $('#' + modalId).trigger('submit.success.bs.modal', [data]);
